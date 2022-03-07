@@ -4,7 +4,8 @@ EXERCICIO AULA 02/03/2022
 ALUNA: Kemily Teixeira
 */
 
-#include <iostream> 
+#include <iostream>
+#include <ctype.h>
 
 using namespace std;
 main()
@@ -18,12 +19,13 @@ main()
 
    cout << "\n\n\n\t Insira um caracter:\t";
    cin >> caracter;
-
-   if ((caracter == 'A') || (caracter == 'a') ||
-       (caracter == 'E') || (caracter == 'e') ||
-       (caracter == 'I') || (caracter == 'i') ||
-       (caracter == 'O') || (caracter == 'o') ||
-       (caracter == 'U') || (caracter == 'u'))
+   caracter = toupper(letra);
+   
+   if ((caracter == 'A') ||
+       (caracter == 'E') || 
+       (caracter == 'I') || 
+       (caracter == 'O') || 
+       (caracter == 'U') ||)
    {
       cout << "\n\n\t Seu caracter e uma VOGAL!";
    }
