@@ -18,16 +18,17 @@ main()
 
     cout << "\n\n\n\t Informe seu SEXO: \t";
     cin >> sexo;
-
-    if ((sexo == 'F') || (sexo == 'f'))
+    sexo = toupper(sexo);
+    
+    if (sexo == 'F')
     {
         cout << "\n\n\t SEXO [FEMININO] SELECIONADO";
     }
-    else if ((sexo == 'M') || (sexo == 'm'))
+    else if (sexo == 'M')
     {
         cout << "\n\n\t SEXO [MASCULINO] SELECIONADO";
     }
-    else if ((sexo == 'N') || (sexo == 'n'))
+    else if (sexo == 'N')
     {
         cout << "\n\n\t SEXO NAO INFORMADO";
     }
