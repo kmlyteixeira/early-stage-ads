@@ -19,13 +19,13 @@ main()
 
    cout << "\n\n\n\t Insira um caracter:\t";
    cin >> caracter;
-   caracter = toupper(letra);
+   caracter = toupper(caracter);
    
    if ((caracter == 'A') ||
        (caracter == 'E') || 
        (caracter == 'I') || 
        (caracter == 'O') || 
-       (caracter == 'U') ||)
+       (caracter == 'U'))
    {
       cout << "\n\n\t Seu caracter e uma VOGAL!";
    }
