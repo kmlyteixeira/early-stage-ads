@@ -1,7 +1,7 @@
 /*FUP altere o programa anterior para imprimir:
-•A quantidade de números negativos
-•A quantidade de pares
-•A quantidade de números múltiplos de 7
+â€¢A quantidade de nÃºmeros negativos
+â€¢A quantidade de pares
+â€¢A quantidade de nÃºmeros mÃºltiplos de 7
 Aluna: Kemily Teixeira
 Data: 14/03/2022
 */
@@ -18,10 +18,10 @@ main()
 	system ("color B");						
 	
 	cout<< "\n\t--------------------------------------------------------";
-	cout<< "\n\t------------VERIFICANDO NUMEROS NEGATIVOS---------------";
+	cout<< "\n\t------------PROGRAMA P/ VERIFICAR NUMEROS---------------";
 	cout<< "\n\t--------------------------------------------------------";
 	
-	cout<< "\n\n\t Insira [10] números: \n";
+	cout<< "\n\n\t Insira [10] nÃºmeros: \n";
 	for (int i=0;i<10;i++){
 		cin>> numero;
 		if(numero<0){
@@ -35,7 +35,7 @@ main()
 			}
 		}
 			
-	cout<< "\t"<< negativos<< " são negativos!";
-	cout<< "\t"<< pares << " são pares!";
-	cout<< "\t"<< multiplosSete<< " são multiplos de SETE!";
+	cout<< "\t"<< negativos<< " sÃ£o negativos!";
+	cout<< "\t"<< pares << " sÃ£o pares!";
+	cout<< "\t"<< multiplosSete<< " sÃ£o multiplos de SETE!";
 }
