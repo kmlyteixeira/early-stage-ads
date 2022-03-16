@@ -30,7 +30,7 @@ main()
 		if(numero%2==0){
 			pares++;
 			}
-		if(numero/7==7){
+		if(numero%7==0){
 			multiplosSete++;
 			}
 		}
