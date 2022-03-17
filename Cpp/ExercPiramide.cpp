@@ -22,6 +22,7 @@ using namespace std;
 main()
 {		
 	char caracter;
+	int tam;
 	
 	setlocale(LC_ALL, "Portuguese"); 	
 	system ("color B");						
@@ -33,7 +34,11 @@ main()
 	cout<< "\n\tInsira um caracter especial: \t";
 	cin>> caracter;
 	
-	for (int i=10;i>=1;i--){
+	cout<< "\n\tInsira o tamanho maximo da sua torre: \t";
+	cin>> tam;
+	
+	
+	for (int i=tam;i>=1;i--){
 			for(int j=1;j<i;j++){
 				cout<< caracter;
 			}
