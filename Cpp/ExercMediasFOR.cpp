@@ -52,7 +52,8 @@ main()
 	mediaHFem = 0,
 	mediaIdadeFem = 0;
 	
-	setlocale(LC_ALL, "Portuguese"); 	
+	setlocale(LC_ALL, "Portuguese");
+	cout << fixed << setprecision(2);  	
 	system ("color B");						
 	
 	cout<< "\n\t-------------------------------------------";
@@ -81,26 +82,25 @@ main()
 				cin>> alturaMasc;
 			}
 					
-				acumIdadeFem = acumIdadeFem + idadeFem;
-				contIdadeFem++;
-				acumHFem = acumHFem + alturaFem;
-				contHFem++;
-					if(alturaFem> 1.70){
-						contFem170++;
-					}
+		acumIdadeFem = acumIdadeFem + idadeFem;
+		contIdadeFem++;
+		acumHFem = acumHFem + alturaFem;
+		contHFem++;
+			if(alturaFem> 1.70){
+				contFem170++;
+			}
 					
 		acumIdadeMasc = acumIdadeMasc + idadeMasc;
-		contIdadeMasc++;
-				
+		contIdadeMasc++;		
 		acumHMasc = acumHMasc + alturaMasc;
 		contHMasc++;
 		
-		if(alturaMasc<1.70){
-			contMasc170++;
-		} 
-		if(alturaMasc>1.90){
-			contMasc190++;
-		}	
+			if(alturaMasc<1.70){
+				contMasc170++;
+			} 
+			if(alturaMasc>1.90){
+				contMasc190++;
+			}	
 					
 		if((i==1)&&(sexo=='F')){
 			maiorIdadeFem = idadeFem;
