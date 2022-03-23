@@ -36,7 +36,9 @@ main()
 	maiorIdadeFem = 0,
 	menorIdadeFem = 0,
 	maiorIdadeMasc = 0,
-	menorIdadeMasc = 0;
+	menorIdadeMasc = 0,
+	menorIdadeGeral = 0,
+	maiorIdadeGeral = 0;
 	
 	char sexo;
 	
@@ -50,7 +52,13 @@ main()
 	mediaHMasc = 0, 
 	mediaIdadeMasc = 0,
 	mediaHFem = 0,
-	mediaIdadeFem = 0;
+	mediaIdadeFem = 0,
+	maiorHFem = 0,
+	menorHFem = 0,
+	maiorHMasc = 0,
+	menorHMasc = 0,
+	menorHGeral = 0,
+	maiorHGeral = 0;
 	
 	setlocale(LC_ALL, "Portuguese");
 	cout << fixed << setprecision(2);  	
@@ -64,7 +72,7 @@ main()
 	cin>> n;
 	
 	for (int i=1;i<=n;i++){
-		cout<< "\n\t Comece informando o sexo  da "<<i<<" pessoa [F]Fem [M]Masc: \t";
+		cout<< "\n\t Comece informando o sexo  da "<<i<<"ª pessoa [F]Fem [M]Masc: \t";
 		cin>> sexo;
 		sexo = toupper(sexo);
 		
@@ -123,7 +131,53 @@ main()
 					if (menorIdadeMasc>idadeMasc){
 						menorIdadeMasc=idadeMasc;
 					}
+					
+		if((i==1)&&(sexo=='F')){
+			maiorHFem = alturaFem;
+			menorHFem = alturaFem;
+				} 
+				if (maiorHFem<alturaFem){
+					maiorHFem=alturaFem;
+				}
+					if (menorHFem>alturaFem){
+					    menorHFem=alturaFem;
+					}
+							
+		if((i==1)&&(sexo=='M')){
+			maiorHMasc = alturaMasc;
+			menorHMasc = alturaMasc;
+				} 
+				if (maiorHMasc<alturaMasc){
+					maiorHMasc=alturaMasc;
+				}
+					if (menorHMasc>alturaMasc){
+						menorHMasc=alturaMasc;
+					}
 	}
+	
+	if(maiorHMasc>maiorHFem){
+		maiorHGeral = maiorHMasc;
+	} else {
+		maiorHGeral = maiorHFem;
+	}
+	
+	if(menorHMasc<menorHFem){
+		menorHGeral = menorHMasc;
+	} else {
+		menorHGeral = menorHFem;
+	}
+ 
+ 	if(maiorIdadeMasc>maiorIdadeFem){
+		maiorIdadeGeral = maiorIdadeMasc;
+	} else {
+		maiorIdadeGeral = maiorIdadeFem;
+	}
+	
+	if(menorIdadeMasc<menorIdadeFem){
+		menorIdadeGeral = menorIdadeMasc;
+	} else {
+		menorIdadeGeral = menorIdadeFem;
+	}	
 	
 	mediaIdades = (acumIdadeMasc + acumIdadeFem)/n;
 	mediaH = (acumHFem + acumHMasc)/n;
@@ -136,22 +190,24 @@ main()
 	
 	cout<< "\n\t A média de todas as idades é " << mediaIdades;
 	cout<< "\n\t E a média de todas as alturas é " << mediaH ;
-	
-	cout<< "\n\n\t A média da idade dos homens é " << mediaIdadeMasc;
+	cout<< "\n\t A média da idade dos homens é " << mediaIdadeMasc;
 	cout<< "\n\t e a média de suas alturas é " << mediaHMasc;
-	
-	cout<< "\n\n\t A média da idade das mulheres é " << mediaIdadeFem;
+	cout<< "\n\t A média da idade das mulheres é " << mediaIdadeFem;
 	cout<< "\n\t e a média de suas alturas é " << mediaHFem;
-	
-	cout<< "\n\n\t A quantidade de mulheres com altura acima de 1.70 é: " << contFem170;
+	cout<< "\n\t A quantidade de mulheres com altura acima de 1.70 é: " << contFem170;
 	cout<< "\n\t A quantidade de homens com altura abaixo de 1.70 é: " << contMasc170;
 	cout<< "\n\t A quantidade de homens com altura acima de 1.90 é: " << contMasc190;
-	
-	cout<< "\n\n\t A maior idade entre os homens é: " << maiorIdadeMasc;
+	cout<< "\n\t A maior idade entre os homens é: " << maiorIdadeMasc;
 	cout<< "\n\t A menor idade entre os homens é: " << menorIdadeMasc;
-	
-	cout<< "\n\n\t A maior idade entre as mulheres é: " << maiorIdadeFem;
+	cout<< "\n\t A maior idade entre as mulheres é: " << maiorIdadeFem;
 	cout<< "\n\t A menor idade entre as mulheres é: " << menorIdadeFem;
-		
+	cout<< "\n\n\t A mulher mais baixa mede: " << menorHFem;	
+	cout<< "\n\t A mulher mais alta mede: " << maiorHFem;
+	cout<< "\n\t O homem mais alto mede: " << maiorHMasc;
+	cout<< "\n\t O homem mais baixo mede: " << menorHMasc;	
+	cout<< "\n\t A pessoa mais baixa de todas mede: " << menorHGeral;	
+	cout<< "\n\t A pessoa mais alta de todas mede: " << maiorHGeral;
+	cout<< "\n\t A pessoa mais nova de todas tem: " << menorIdadeGeral << " anos";
+	cout<< "\n\t A pessoa mais velha de todas tem: " << maiorIdadeGeral << " anos";
 	
 }
