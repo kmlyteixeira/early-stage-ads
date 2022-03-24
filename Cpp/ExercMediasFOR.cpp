@@ -74,24 +74,41 @@ main()
 	cin>> n;
 	
 	for (int i=1;i<=n;i++){
-		cout<< "\n\t Comece informando o sexo  da "<<i<<"ª pessoa [F]Fem [M]Masc: \t";
+		cout<< "\n\t Informe o sexo  da "<<i<<"ª pessoa [F]Fem [M]Masc: \t";
 		cin>> sexo;
 		sexo = toupper(sexo);
-		
 			if (sexo=='F'){
 				x++;
-				cout<< "\n\t Agora insira a idade desta mulher: \t";
-				cin>> idadeFem;
-				cout<< "\n\t E por último... insira a altura: \t";
-				cin>> alturaFem;
+				do{
+					cout<< "\n\t Insira a idade desta mulher: \t";
+					cin>> idadeFem;
+					if((idadeFem<0)||(idadeFem>150))
+						cout<< "\n\t ERRO: Idade INVÁLIDA! Tente novamente...";
+				} while ((idadeFem<0)||(idadeFem>150));
+				
+				do{
+					cout<< "\n\t Agora, informe a altura: \t";
+					cin>> alturaFem;
+					if((alturaFem<0)||(alturaFem>3))
+						cout<< "\n\t ERRO: Altura INVÁLIDA! Tente novamente...";
+				} while ((alturaFem<0)||(alturaFem>3));
 			}
 					
 			if(sexo=='M'){
 				y++;
-				cout<< "\n\t Agora insira a idade deste homem: \t";
-				cin>> idadeMasc;
-				cout<< "\n\t E por último... insira a altura: \t";
-				cin>> alturaMasc;
+				do{
+					cout<< "\n\t Agora insira a idade deste homem: \t";
+					cin>> idadeMasc;
+					if((idadeMasc<0)||(idadeMasc>150))
+						cout<< "\n\t ERRO: Idade INVÁLIDA! Tente novamente...";
+				} while ((idadeMasc<0)||(idadeMasc>150));
+				
+				do{
+					cout<< "\n\t E por último... insira a altura: \t";
+					cin>> alturaMasc;
+					if((alturaMasc<0)||(alturaMasc>3))
+						cout<< "\n\t ERRO: Altura INVÁLIDA! Tente novamente...";
+				} while ((alturaMasc<0)||(alturaMasc>3));
 			}
 					
 		acumIdadeFem = acumIdadeFem + idadeFem;
