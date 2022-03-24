@@ -1,6 +1,7 @@
 /*FUP que imprima a TABUADA	
 ALUNA: Kemily Teixeira
 DATA: 14/03/2022
+Dta Alteração: 23/03/2022 - USANDO DO-WHILE
 */
 
 #include <iostream> 
@@ -9,7 +10,7 @@ using namespace std;
 
 main()
 {	
-	int numero;
+	int numero,i,limite;
 	
 	setlocale(LC_ALL, "Portuguese"); 	
 	system ("color B");						
@@ -20,10 +21,13 @@ main()
 	
 	cout<< "\n\n\t Insira o número que deseja saber a TABUADA: ";
 	cin>> numero;
-	cout<< "\n\t\t------------";
-	for(int i = 0; i <= 10; i++){
+	cout<< "\n\t Estabeleça um limite para imprimir sua TABUADA: ";
+	cin>> limite;
+	
+	i=0;
+	
+	do{
 		cout<< "\n\t\t" <<numero<< " X " <<i<< " = " <<numero*i<<"\n";
-	}
-	cout<< "\n\t\t------------";
+		i++;
+	} while (i<=limite);
 }
-
