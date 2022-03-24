@@ -106,7 +106,7 @@ main()
 				do{
 					cout<< "\n\t E por último... insira a altura: \t";
 					cin>> alturaMasc;
-					if((alturaMasc<0)||(alturaMasc>3))
+					if((alturaMasc<0)||(alt\/*$$*/uraMasc>3))
 						cout<< "\n\t ERRO: Altura INVÁLIDA! Tente novamente...";
 				} while ((alturaMasc<0)||(alturaMasc>3));
 			}
