@@ -1,6 +1,7 @@
-/*FUP que Imprima todos os numeros de 1 ao numero que o usu�rio desejar
+/*FUP que Imprima os numeros entre o intervalo que o usuário desejar
 Aluna: Kemily Teixeira
 Dta: 14/03/2022
+Dta Versão 2: 23/03/2022 - USANDO DO WHILE
 */
 
 #include <iostream> 
@@ -9,22 +10,26 @@ using namespace std;
 
 main()
 {	
-	int numero;
+	int iniRep = 0, fimRep = 0, i = 0;
 	
 	setlocale(LC_ALL, "Portuguese"); 	
 	system ("color B");						
 	
-	cout<< "\n\t---------------------------------------------";
-	cout<< "\n\t------------IMPRIMINDO NUMEROS---------------";
-	cout<< "\n\t---------------------------------------------";
+	cout<< "\n\t----------------------------------------------------------------";
+	cout<< "\n\t------------IMPRIMINDO NUMEROS em Ordem Crescente---------------";
+	cout<< "\n\t----------------------------------------------------------------";
 	
-	cout<< "\n\n\t Insira o n�mero para estabelecer um limite: ";
-	cin>> numero;
+	cout<< "\n\n\t Insira o número para estabelecer um INICIO: ";
+	cin>> iniRep;
 	
-	cout<< "\n\t\t------------\n";
+	cout<< "\n\n\t Insira o número para estabelecer um LIMITE: ";
+	cin>> fimRep;
 	
-	for(int i = 0; i <= numero; i++){
-		cout<< " " <<i<< " ";
-	}
-	cout<< "\n\t\t------------";
+	i = iniRep;
+	
+	cout<< "\n\t\t";
+	do{
+		cout<< " " << i << " ";
+		i++;
+	} while (i<=fimRep);
 }
