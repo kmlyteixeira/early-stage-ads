@@ -13,7 +13,8 @@ Ex.:
 #include <iostream> 
 #include <iomanip> 
 using namespace std; 
-int i, opcao, numero, fat = 1, ultimo, penultimo, prox, mes, qntDias, numeroMaior; 
+int i, opcao, numero, fat = 1, ultimo, penultimo, prox, mes, qntDias, numeroMaior, 
+numeroMenor, soma, aux, ano, dia;
 
 main()
 {
@@ -109,81 +110,102 @@ main()
         		system("pause");
         	    break;  
 	            }  
- /*		            --- FINALIZAR A PARTIR DAQUI -------           				  
+        				  
 	    case 4 :{
 	            cout<<"\n Leia 3 valores e imprima a soma dos 2 maiores.";
-	                for (i=1;i<=3;i++){
-	                   cout<<"Insira o " <<i<< "º número";
-	                   cin>> numero;
-	                        if(i==1){
-	                            numeroMaior=numero;
-	                        } if (numeroMaior>numero){
-	                            numeroMenor=numero;
-	                            numeroMaior=aux;
-	                        } if (numeroMaior<numero){
-	                            
-	                        }
-	                }
-	            cout<<"\n\n";
-				system("pause");
-	            break;
-	            }
-	            
-	    case 5:{
-	            cout<<"\n Sequência de números da sua escolha, utilizando o DO_WHILE";
-	            cout<<"\n Escolha o número de início: ";
-	            cin>>inicio;
-	            cout<<"\n Escolha o número final: ";
-	            cin>>fim;
-	            cout<<"\n\n";
-	            i=inicio;
-	                do {
-	                  cout<<" | " << i;
-	                  i++;
-	                } while (i<=fim);
-	            cout<<"\n\n";
-				system("pause");
-	            break;
-	            }
+	                for(int i=1;i<=3; i++){
+	                	cout<<"\n\n Insira o " << i<< "º numero: \t";
+						cin>> numero;
+						if (i==1){
+				            numeroMaior=numero;
+				        	}
+				        if (numeroMaior<numero){
+				        	aux=numeroMaior;
+				            numeroMaior=numero;
+				        	}
+				        if (numeroMaior>numero){
+				            aux=numero;
+				        	}
+				  		}
+	                    soma = numeroMaior+aux;
+	                    cout<<"\n\n A soma dos dois MAIORES numeros da sua sequência :";
+	                    cout<<"\n\n " << numeroMaior << " + " << aux << " = " << soma;
 	
+	            cout<<"\n\n";
+				system("pause");
+	            break;
+	            }
+ /*		            --- FINALIZAR A PARTIR DAQUI -------   		            
+	    case 5:{
+	            cout<<"\n Calcule e imprima o MMC (Minímo Múltiplo Comum) de um número";
+	            cout<<"\n Insira dois numeros para calcular >>> \t";
+	     		cin>> num1;
+	     		cin>> num2;
+	     		
+				a = num1;
+				b = num2;
+
+				    do {
+				        resto = a % b;
+				        a = b;
+				        b = resto;
+				
+				    } while (resto != 0);
+
+				cout<<"";
+	            cout<<"\n\n";
+				system("pause");
+	            break;
+	            }
+
 	    case 6:{
-		        cout<<"\n Sequência de números da sua escolha, utilizando comando WHILE";
-		        cout<<"\n\n Escolha o número de início: ";
-		        cin>>inicio;
-		        cout<<"\n Escolha o número final: ";
-		        cin>>fim;
-		        cout<<"\n\n";
-		        i=inicio;
-			        while (i<=fim){
-			         cout<<" | " << i;
-			         i++;	
-			        }
+		        cout<<"\n Verifique se a data informada é válida. Formato: DD/MM/YYYY";
+		        cout<<"\n\n Comece inserindo o ANO (DC) >>> \t ";
+				cin>> ano;
+					while((ano<1)||(ano>9999)){
+						cout<<"\n\n ANO inválido, tente novamente >>> \t ";	
+						cin>>ano;
+					}
+				
+				cout<<"\n\n Agora o numero que corresponte ao mês desejado >>> \t";
+	            cout<<"\n [1]JANEIRO 	[2]FEVEREIRO   [3]MARÇO ";
+	            cout<<"\n [4] ABRIL  	[5] MAIO  	   [6] JUNHO ";
+	            cout<<"\n [7] JULHO  	[8] AGOSTO     [9] SETEMBRO ";
+	            cout<<"\n [10] OUTUBRO  [11] NOVEMBRO  [12] DEZEMBRO \n\t";
+				cin>> mes;
+					while((mes<1)&&(mes>12)){
+						cout<<"\n\n MÊS inválido, tente novamente >>> \t ";	
+						cin>>mes;
+					}
+				
+				cout<<"\n\n Por último, insira o dia >>> \t";
+				cin>> dia;
+					do{
+						cout<<"\n\n DIA inválido para o mês selecionado, tente novamente >>> \t";
+						cin>>dia;
+					} while((mes=2)&&(ano%4==0)&&(dia>29));
+					
+					do{
+						cout<<"\n\n DIA inválido para o mês selecionado, tente novamente >>> \t";
+						cin>>dia;
+					} while((mes=2)&&(ano%4!=0)&&(dia>28));
+					
+					do{
+						cout<<"\n\n DIA inválido para o mês selecionado, tente novamente >>> \t";
+						cin>>dia;
+					} while((mes=4)||(mes=6)||(mes=9)||(mes=11)&&(dia>30));
+
 			    cout<<"\n\n"; 
 			    system("pause");
 			    break;
 	            }
-	            
-	    case 7:{
-	            cout<<"\n\n Tabuada de um numero usando o WHILE";
-	            cout<<"\n\n Escolha o número para calcular: ";
-	            cin>>tabuada;
-	                i=0;
-					while (i<=10)
-					{            
-	                   cout<<"\n\n"<<tabuada<<"*"<<i<<"="<<tabuada*i;
-	                   i++;
-	               	}
-	            cout<<"\n\n";
-	            system("pause");
-	            break;
-	            }
-	
+*/	            
 	    default : {
 	            cout<<"\n  Escolha Inválida! Tente novamente >>> \n\n";
 	            cout<<"\n\n";
 	            system("pause");
 	            break;
-	                }   */                   
+	                }                   
 		}
-	} while (opcao!=8);
+	} while (opcao!=7);
 }
