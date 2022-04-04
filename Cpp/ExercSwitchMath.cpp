@@ -13,7 +13,7 @@ Ex.:
 #include <iostream> 
 #include <iomanip> 
 using namespace std; 
-int i, opcao, numero, numero2, fat = 1, ultimo, penultimo, prox, mes, qntDias, numeroMaior, 
+int i, opcao, numero=0, numero2, numero3, fat = 1, ultimo, penultimo, prox, mes, qntDias, numeroMaior, 
 numeroMenor, soma, aux, ano, dia=0, mmc;
 
 main()
@@ -25,7 +25,7 @@ main()
 	 cout<<" \n\t===========================================  "; 
 	 cout<<" \n\t\a  OPERAÇÕES MATEMÁTICAS - MENU SWITCH ";
 	 cout<<" \n\t===========================================  "; 
-	 cout<<"\n\n WELCOME :) >> Faça a sua escolha << ";
+	 cout<<"\n\n WELCOME :) >> Faça a sua escolha << "; 
 	 cout<<"\n\n [1] - Calcular fatorial de um número.";
 	 cout<<"\n [2] - Imprimir os 10 primeiros termos da Série de Fibonacci";
 	 cout<<"\n [3] - Leia um número equivalente ao mês e imprima a quantidade de dias deste mês";
@@ -39,14 +39,12 @@ main()
 	 {
 	  	case 1:{
 	            cout<<"\n\n ------FATORIAL de um NÚMERO------";
-	            do{
-	            	cout<<"\n\n Escolha o número para calcular: ";
+	            cout<<"\n\n Escolha o número para calcular: ";
 	           		cin>>numero;
 		            	for (i=1;i<=numero;i++){
 		            		fat *= i; /*armazena o produto*/
 						}
-					cout<< "\n O Fatorial de " << numero << " é: " <<fat;
-				} while (numero);
+				cout<< "\n O Fatorial de " << numero << " é: " <<fat;
 	            cout<<"\n\n";
 				system("pause");
 				break;
@@ -96,7 +94,13 @@ main()
     	                    break;
     	                }
     	                case 2: {
-    	                    qntDias=qntDias-2;
+    	                	cout<< "\n\n Sua resposta depende... Qual o ANO que se refere este mês?";
+    	                	cin>> ano;
+    	                		if (ano%4==0){
+    	                			qntDias=qntDias-2;	
+								}else{
+									qntDias=qntDias-3;
+								}
     	                    break;
     	                }
     	                default : {
@@ -113,24 +117,29 @@ main()
         				  
 	    case 4 :{
 	            cout<<"\n Leia 3 valores e imprima a soma dos 2 maiores.";
-	                for(int i=1;i<=3; i++){
-	                	cout<<"\n\n Insira o " << i<< "º numero: \t";
-						cin>> numero;
-						if (i==1){
-				            numeroMaior=numero;
-				        	}
-				        if (numeroMaior<numero){
-				        	aux=numeroMaior;
-				            numeroMaior=numero;
-				        	}
-				        if (numeroMaior>numero){
-				            aux=numero;
-				        	}
-				  		}
-	                    soma = numeroMaior+aux;
-	                    cout<<"\n\n A soma dos dois MAIORES numeros da sua sequência :";
-	                    cout<<"\n\n " << numeroMaior << " + " << aux << " = " << soma;
-	
+	        	cout<<"\n\n Insira o 1º numero: \t";
+				cin>> numero;
+				cout<<"\n\n Insira o 2º numero: \t";
+				cin>> numero2;
+				cout<<"\n\n Insira o 3º numero: \t";
+				cin>> numero3;
+				
+				if ((numero3 < numero) && (numero < numero2)){
+					aux = numero;
+					numeroMaior=numero2;
+					soma = (numero + numero2);
+				} else if ((numero2 < numero) && (numero < numero3)){
+					aux = numero;
+					numeroMaior=numero3;
+					soma = (numero + numero3);	
+				}else{
+					aux = numero2;
+					numeroMaior=numero3;
+					soma = (numero2 + numero3);
+				}
+				
+                cout<<"\n\n A soma dos dois MAIORES numeros da sua sequência: ";
+				cout<< "\n\t " << aux << " + " << numeroMaior<< " = " << soma;
 	            cout<<"\n\n";
 				system("pause");
 	            break;
@@ -183,29 +192,37 @@ main()
 						cin>>mes;
 					}
 				
-				cout<<"\n\n Por último, insira o dia >>> \t";
-				cin>> dia;
-				    if ((dia>28)&&(mes=2)){
-				        do{
-				           cout<<"\n\n DIA inválido, tente novamente >>> \t ";
-				           cin>> dia;
-				        } while(ano%4==0);
-				    } else if ((dia>29)&&(mes=2)){
-				        do{
-				           cout<<"\n\n DIA inválido, tente novamente >>> \t ";
-				           cin>> dia; 
-				        } while(ano%4!=0);
-				    } else if (dia>30){
-				        do{
-				           cout<<"\n\n DIA inválido, tente novamente >>> \t ";
-				           cin>> dia; 
-				        } while((mes=4)||(mes=6)||(mes=9)||(mes=11));
-				    } else {
-				        do{
-				           cout<<"\n\n DIA inválido, tente novamente >>> \t ";
-				           cin>> dia; 
-				        } while(dia>31);
-				    }
+				if((mes=2)&&(ano%4==0)){
+					cout<<"\n\n Por último, insira o dia >>> \t";
+					cin>> dia;
+					do{
+			           cout<<"\n\n DIA inválido, tente novamente >>> \t ";
+			           cin>> dia;
+				     } while(dia>29);
+				     
+				} else if ((mes=2)&&(ano%4!=0)){
+					cout<<"\n\n Por último, insira o dia >>> \t";
+					cin>> dia;
+					do{
+			           cout<<"\n\n DIA inválido, tente novamente >>> \t ";
+			           cin>> dia;
+				     } while(dia>28);
+				     
+				} else if ((mes=4)||(mes=6)||(mes=9)||(mes=11)){
+					cout<<"\n\n Por último, insira o dia >>> \t";
+					cin>> dia;
+					do{
+			           cout<<"\n\n DIA inválido, tente novamente >>> \t ";
+			           cin>> dia; 
+			        } while(dia>30);
+				} else {
+					cout<<"\n\n Por último, insira o dia >>> \t";
+					cin>> dia;
+					do{
+			           cout<<"\n\n DIA inválido, tente novamente >>> \t ";
+			           cin>> dia; 
+			        } while(dia>31);
+				}
 			    cout<<"\n\n"; 
 			    system("pause");
 			    break;
