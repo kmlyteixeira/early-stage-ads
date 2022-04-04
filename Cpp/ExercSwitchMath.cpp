@@ -13,8 +13,8 @@ Ex.:
 #include <iostream> 
 #include <iomanip> 
 using namespace std; 
-int i, opcao, numero, fat = 1, ultimo, penultimo, prox, mes, qntDias, numeroMaior, 
-numeroMenor, soma, aux, ano, dia;
+int i, opcao, numero, numero2, fat = 1, ultimo, penultimo, prox, mes, qntDias, numeroMaior, 
+numeroMenor, soma, aux, ano, dia=0, mmc;
 
 main()
 {
@@ -135,29 +135,34 @@ main()
 				system("pause");
 	            break;
 	            }
- /*		            --- FINALIZAR A PARTIR DAQUI -------   		            
+ 		            
 	    case 5:{
 	            cout<<"\n Calcule e imprima o MMC (Minímo Múltiplo Comum) de um número";
-	            cout<<"\n Insira dois numeros para calcular >>> \t";
-	     		cin>> num1;
-	     		cin>> num2;
-	     		
-				a = num1;
-				b = num2;
-
-				    do {
-				        resto = a % b;
-				        a = b;
-				        b = resto;
-				
-				    } while (resto != 0);
-
-				cout<<"";
-	            cout<<"\n\n";
+	                for(i=1;i<=2;i++){
+	                        if(i==1){
+	                           cout<<"\n Insira o " <<i<<"º numero >>> \t";
+	                           cin>> numero;
+	                        } else {
+	                           cout<<"\n Insira o " <<i<<"º numero >>> \t";
+	                           cin>> numero2;
+	                        }
+	                }
+	            if(numero>numero2)
+                    mmc = numero;
+                    else
+                    mmc = numero2;
+                
+                while(1) {
+                    if(mmc%numero==0 && mmc%numero2==0) {
+                        cout<<"\n\t O MMC de "<<numero<<" e "<<numero2<<" é "<<mmc;
+                        break;
+                    }
+                    mmc++;
+                }
 				system("pause");
 	            break;
 	            }
-
+	            
 	    case 6:{
 		        cout<<"\n Verifique se a data informada é válida. Formato: DD/MM/YYYY";
 		        cout<<"\n\n Comece inserindo o ANO (DC) >>> \t ";
@@ -173,33 +178,39 @@ main()
 	            cout<<"\n [7] JULHO  	[8] AGOSTO     [9] SETEMBRO ";
 	            cout<<"\n [10] OUTUBRO  [11] NOVEMBRO  [12] DEZEMBRO \n\t";
 				cin>> mes;
-					while((mes<1)&&(mes>12)){
+					while((mes<1)||(mes>12)){
 						cout<<"\n\n MÊS inválido, tente novamente >>> \t ";	
 						cin>>mes;
 					}
 				
 				cout<<"\n\n Por último, insira o dia >>> \t";
 				cin>> dia;
-					do{
-						cout<<"\n\n DIA inválido para o mês selecionado, tente novamente >>> \t";
-						cin>>dia;
-					} while((mes=2)&&(ano%4==0)&&(dia>29));
-					
-					do{
-						cout<<"\n\n DIA inválido para o mês selecionado, tente novamente >>> \t";
-						cin>>dia;
-					} while((mes=2)&&(ano%4!=0)&&(dia>28));
-					
-					do{
-						cout<<"\n\n DIA inválido para o mês selecionado, tente novamente >>> \t";
-						cin>>dia;
-					} while((mes=4)||(mes=6)||(mes=9)||(mes=11)&&(dia>30));
-
+				    if ((dia>28)&&(mes=2)){
+				        do{
+				           cout<<"\n\n DIA inválido, tente novamente >>> \t ";
+				           cin>> dia;
+				        } while(ano%4==0);
+				    } else if ((dia>29)&&(mes=2)){
+				        do{
+				           cout<<"\n\n DIA inválido, tente novamente >>> \t ";
+				           cin>> dia; 
+				        } while(ano%4!=0);
+				    } else if (dia>30){
+				        do{
+				           cout<<"\n\n DIA inválido, tente novamente >>> \t ";
+				           cin>> dia; 
+				        } while((mes=4)||(mes=6)||(mes=9)||(mes=11));
+				    } else {
+				        do{
+				           cout<<"\n\n DIA inválido, tente novamente >>> \t ";
+				           cin>> dia; 
+				        } while(dia>31);
+				    }
 			    cout<<"\n\n"; 
 			    system("pause");
 			    break;
 	            }
-*/	            
+
 	    default : {
 	            cout<<"\n  Escolha Inválida! Tente novamente >>> \n\n";
 	            cout<<"\n\n";
