@@ -12,8 +12,8 @@ Data: 04/04/2022
 #include <iomanip>
 #include <conio.h> // Para usar o getch();
 
-int x,op, numero=0, inicio, fim, contador, aux;
-char escolha, repetir;
+int i,x,op, numero=0, inicio, fim, contador, aux, nprimo,positivo,negativo;
+char escolha, repetir, um, dois, tres, quatro, cinco, seis, sete, oito,opcao;
 
 using namespace std;
 main ()
@@ -47,12 +47,55 @@ cout << fixed << setprecision(2);
 	   cout<<"\n\n\n\n ESCOLHA UMA OPÇÃO --> ";
 	   cin>>op;
 	  switch (op)
-	  {/*
+	  { /*CONTINUAR A PARTIR DAQUI*/
 	    case  1:{
-	         system ("color 2");
-	         cout<<"\n Opção 01";
-	         cout<<" \n APERTE UMA TECLA";
-	         getch(); // espera digitar algo
+	        cout<<"\n ========================================";
+			cout<<"\n == QUESTÃO 01 - INVESTIGAÇÃO CRIMINAL ==";
+			cout<<"\n ========================================";
+            cout<<"\n\n Você está pronto para responder ao questionário? [S]SIM [N]NÃO >>>\t ";
+            cin>> opcao;
+            opcao=toupper(opcao);
+            if(opcao='N'){
+                cout<<"\n\n OK. Volte quando estiver pronto. Até mais!";
+            }
+            do{
+                cout<<"\n\n >>> INVESTIGAÇÃO Assassinato na Casa Branca <<<";
+                cout<<"\n RESPONDA AS PERGUNTAS COM [S]SIM ou [N]NÃO";
+                cout<<"\n >> APERTE QUALQUER TECLA <<";
+                getch();
+                
+                cout<<"\n\n >>> Trocou mensagens com a vítima? <<<";
+                cin>>um;
+                um=toupper(um);
+                    if(um=='S'){
+                        positivo++;
+                    } else if (um=='N'){
+                        negativo++;
+                    } 
+                cout<<"\n\n >>> Esteve no local do crime? <<<";
+                cin>>dois;
+                dois=toupper(dois);
+                cout<<"\n\n >>> É parente ou reside perto da vítima? <<<";
+                cin>>tres;
+                tres=toupper(tres);
+                cout<<"\n\n >>> Devia algum valor para a vítima? <<<";
+                cin>>quatro;
+                quatro=toupper(quatro);
+                cout<<"\n\n >>> Trabalha ou trabalhou com a vítima? <<<";
+                cin>>cinco;
+                cinco=toupper(cinco);
+                cout<<"\n\n >>> Possui algum tipo de relacionamento amoroso com a vítima? <<<";
+                cin>>seis;
+                seis=toupper(seis);
+                cout<<"\n\n >>> Ficou feliz pelo destino fatídico da vítima? <<<";
+                cin>>sete;
+                sete=toupper(sete);
+                cout<<"\n\n >>> Possui algum tipo de arma de fogo? <<<";
+                cin>>oito;
+                oito=toupper(oito); /*CONTINUAR*/
+
+            }while (opcao='S');
+	         system("pause");
 	         break;
 	           }
 	    case 2:{
@@ -60,18 +103,10 @@ cout << fixed << setprecision(2);
              cout<<"\n Opção 02";
              cout<<" \n APERTE UMA TECLA";
              getch(); //ou system("pause");
-        
-             
              break;
 	           }
-	    */
+	    
 	    case 7:{
-	    /* QUESTÃO 07:
-		Números Primos
-		Escolha uma opção:
-		[P] - Verifica se o informado é um Número Primo ou Não 
-		[L] - Mostra os números primos entre um intervalo de números fornecido pelo usuário. Peça o limite incial e o final.*/
-		
 	    	cout<<"\n =================================";
 			cout<<"\n == QUESTÃO 07 - NÚMEROS PRIMOS ==";
 			cout<<"\n =================================";
@@ -93,7 +128,7 @@ cout << fixed << setprecision(2);
 						}
 		        	if (contador==2){
                        cout<<"\n\n\t" <<numero<< " é um número PRIMO. \t"; 
-                    } else {
+                    } else if (contador!=2) {
                        cout<<"\n\n\t" <<numero<< " não é um número PRIMO. \t";
                     }
                     
@@ -109,29 +144,34 @@ cout << fixed << setprecision(2);
 					system("pause");
 					break;
 				}
-				/* - CONTINUAR A PARTIR DAQUI
+				
 				case 'L':{
 					cout<<"\n\n Insira um número para iniciar a seleção >>> \t";
 					cin>> inicio;
 					cout<<"\n\n Agora defina um limite para sua seleção >>> \t";
 					cin>> fim;
-						for(int i=inicio;i<=fim;i++){
-						    
-						    do{ 
-						        cout<< " " << i << " ";
-						        i++;
-						    }while(fim);
+                        for(int i=inicio;i<=fim;i++){
+                            if ((i==0)||(i==1)){
+                                nprimo=1;
+                            } else if ((i!=0)||(i!=1)){
+                                for(int j=2;j<i;j++){
+                                    if(i%j==0){
+                                        nprimo=1;
+                                    }
+                                }
+                            if(nprimo==0){
+                                cout<<" "<<i;
+                            }     
 						}
-						system("pause");
-					    break;	
-						}
-						
-				system("pause");
-				break;	
-				}*/
+                    nprimo=0;
+                    }
+                system("pause");
+                break; 
 			}
-			break;
-		
+		    system("pause");
+		    break;	
+	        }
+        }
 	    case 8:{
              system ("color 8");
              cout<<"\n\n Finalizando seu PROGRAMA! See you later :) \n ";
@@ -146,5 +186,5 @@ cout << fixed << setprecision(2);
 	            }
 	  }
 	  
-	} while(op!=8);
+	}while(op!=8);
 }
