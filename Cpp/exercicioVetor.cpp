@@ -1,3 +1,6 @@
+// EXERCICIO informar 15 notas - verificar quantos alunos tiveram nota maior que a média
+// Aluna Kemily Teixeira
+
 #include <iostream>
 #include <iomanip>
 #define TAM 5
