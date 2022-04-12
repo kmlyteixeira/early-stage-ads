@@ -1,0 +1,63 @@
+/*FUP que peça 15 numeros e imprima o maior deles
+AULA: 11/04/2022
+ALUNA: Kemily Teixeira
+*/
+
+#include <iostream> 
+#include <iomanip> 
+#define TAM 15
+using namespace std; 
+
+void bubble_sort(int matriz[], int tam){
+  int temp, i, j;
+  
+  for(int i = 0; i < tam; i++){
+    for(int j = 0; j < tam; j++){
+      if(matriz[i] < matriz[j]){
+        temp = matriz[i];
+        matriz[i] = matriz[j];
+        matriz[j] = temp;
+      }
+    }
+  }
+}
+
+main()
+{	
+	setlocale(LC_ALL, "Portuguese");
+	system ("color B");	
+		
+	int number[TAM], numeroMaior=0, numeroMenor=0;
+	
+	cout<< "\n\n\n\t =======================================";	
+	cout<< "\n\t =======IMPRIMINDO O MAIOR NÚMERO=======";
+	cout<< "\n\t =========COM VALORES ALEATÓRIOS========\n\n"; 
+	
+    for (int i = 0; i < TAM; i++)
+    {
+        number[i] = (rand()%TAM)+1;
+    }
+
+    bubble_sort(number, TAM);
+
+    for(int i = 0; i < TAM; i++)
+    {
+    cout << " | " << number[i];
+    }
+    
+    for (int i = 0; i < TAM; i++)
+    {
+        if (i==0){
+            numeroMaior = number[i];
+            numeroMenor = number[i];
+        } else if (number[i]>numeroMaior){
+            numeroMaior = number[i];
+        } else if (number[i]<numeroMenor){
+            numeroMenor = number[i];
+        }
+        
+    }
+
+    cout<< "\n\n O maior numero é >>> " <<numeroMaior;
+    cout << "\n O menor número é >>> "<<numeroMenor;
+}
