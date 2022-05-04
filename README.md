@@ -1,2 +1,3 @@
-### Repositório Exercicios CPP
-#### 1ª SEMESTRE Introdução a Programação - ADS
+### Repositório reservado para códigos avulsos
+
+#### Primeiros Estudos de Lógica de Programação/ linguagem C++
